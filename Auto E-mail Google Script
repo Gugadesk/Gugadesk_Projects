@@ -1,0 +1,22 @@
+//Envia email de status ao usuário.
+function autoMail() {
+  var ss = SpreadsheetApp.openById("Inserir o ID do Google Sheet")
+  var sheet = ss.getSheetByName("Nome da Planilha");
+  var row = sheet.getLastRow();
+  //var number = sheet.getRange(row, getColIndexByName("ID")).getValue();
+  var heads = sheet.getRange("A1:O1").getValues();
+  var gustavo = "inserir e-mail desejado"
+  //console.log(heads[0].indexOf("Nome Completo: "))
+
+  var subject = "Reembolso de VT"
+
+  //console.log(subject)
+ 
+  //inserção do corpo de texto do e-mail
+  var body = 'Cadastro realizado com sucesso. Link de planilha para acompanhamento:  
+  
+  //body += "\n\nEmail Address: " + Email;
+   
+  //body += "\n\nAções: " + sheet.getRange(row, getColIndexByName("Ações")).getValue();
+  MailApp.sendEmail(gustavo, subject, body, {noReply: true});
+}
